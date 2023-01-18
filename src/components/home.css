@@ -1,0 +1,130 @@
+#fullpage {
+    background-image: url("../LandingPageFolder/images/KigumoPoster.jpeg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    border: 2px solid yellow;
+  }
+  /* ------landingpage background ends-------- */
+  span {
+    position: absolute;
+    /* top: 0;
+    left: 0; */
+    width: 100%;
+    height: 100%;
+  
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.7);
+  }
+  
+  * {
+    font-family: "Nunito", sans-serif;
+  }
+  h1 {
+    font-weight: 900;
+  }
+  p {
+    font-weight: 500;
+  }
+  /* -----components in landing page---- */
+  .landingview {
+    /* border: 2px solid white; */
+    color: white;
+    display: flex;
+    flex: 1 1 30rem;
+    padding: 10px;
+    margin-top: 3rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+  
+  .landingviewpage {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50vh;
+    height: 40vh;
+    flex: 0.5 0.5 20rem;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    color: #fff;
+    z-index: 13;
+  }
+  .landingviewpage img {
+    width: 100vw;
+    height: 90vh;
+  }
+  .landingviewpage button {
+    margin-top: 3rem;
+    color: black;
+    border: 2px solid orange;
+    border-radius: 0.5rem;
+    background: orange;
+    letter-spacing: 2px;
+    font-family: "Kalam", cursive;
+    font-weight: 500;
+  }
+  
+  /* ------components in landing page end------- */
+  #partners {
+    /*border: 2px solid red;*/
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*width: 50vw;
+    */
+    height: 40vh;
+    /*padding: 2rem;*/
+    border-radius: 0.5rem;
+    color: #fff;
+  }
+  /* -----choirs section end */
+  footer {
+    z-index: 1;
+    background-color: #001e2a;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0.5rem;
+    color: #fff;
+  }
+  .foot {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 6px;
+    outline: none;
+    text-align: center;
+    font-size: 40px;
+    padding-top: 25px;
+    z-index: 1000;
+    z-index: 15;
+    /* border: 2px solid #fa521c; */
+  }
+  
+  #linkf {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-around;
+    color: #fff;
+    font-size: medium;
+    font-family: 'Caveat', cursive;
+  }
+  #linkf:hover {
+    color: #fa521c;
+  }
+  #sicon{
+    font-size: larger;
+    margin-right: 5px;
+  }
+  #sicon:hover{
+    transform: rotateZ('720deg');
+  
+  }
