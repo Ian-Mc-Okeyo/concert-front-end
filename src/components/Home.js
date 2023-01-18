@@ -1,5 +1,8 @@
 import React from "react";
+import "./home.css";
+// import kigumo from "./images/KigumoOfficial.jpeg";
 import { Link } from "react-router-dom";
+
 
 import { BsFacebook } from "react-icons/bs";
 import { FaGlobeAfrica } from "react-icons/fa";
@@ -9,10 +12,13 @@ import { BsTwitter } from "react-icons/bs";
 export default function Home() {
   return (
     <>
-      <div className="bg"></div>
-      <div className="bg bg2"></div>
-      <div className="bg bg3"></div>
+      <div className="bg" id="fullpage"></div>
+      <div className="bg bg2" id="fullpage"></div>
+      {/* <div className="bg bg3" id="fullpage"></div> */}
+      <span></span>
       <div className="content">
+        
+   
         <h1>BRIGHTEN YOUR CORNER CONCERT</h1>
         <Link to="/buy">
           <button className="" type="submit">
