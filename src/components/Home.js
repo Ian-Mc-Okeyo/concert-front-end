@@ -1,6 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { BsFacebook } from "react-icons/bs";
+import { FaGlobeAfrica } from "react-icons/fa";
+import { FaInstagramSquare } from "react-icons/fa";
+import { BsTwitter } from "react-icons/bs";
+
 export default function Home() {
   return (
     <>
@@ -15,7 +20,31 @@ export default function Home() {
           </button>
         </Link>
         {/* ...........footer section............ */}
+        <footer>
+          <div className="foot">
+            <a href="https://twitter.com/sdajkuat" id="linkf" target="_blank">
+              <BsTwitter id="sicon" />
+              SDA church,JKUAT
+            </a>
 
+            <a href="" id="linkf" target="_blank">
+              <FaInstagramSquare id="sicon" />
+              SDA Church,JKUAT
+            </a>
+            <a
+              href="https://www.facebook.com/jkusda/"
+              id="linkf"
+              target="_blank"
+            >
+              <BsFacebook id="sicon" />
+              SDA Church,JKUAT
+            </a>
+            <a href="https://www.jkusdachurch.org/" id="linkf" target="_blank">
+              <FaGlobeAfrica id="sicon" />
+              JKUSDA Church
+            </a>
+          </div>
+        </footer>
         {/* .....footer section ends........ */}
       </div>
     </>
