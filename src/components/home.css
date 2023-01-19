@@ -1,23 +1,23 @@
 #fullpage {
-    background-image: url("./images/KigumoOfficial.jpeg");
+    background-image: url("./images/KigumoLighthouse.jpeg");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* width: 100vw; */
+    /* width: 1240px; */
     height: 100vh;
     /* border: 2px solid yellow; */
   }
   /* ------landingpage background ends-------- */
   span {
     position: absolute;
-    /* top: 0;
-    left: 0; */
+    top: 0;
+    /*left: 0; */
     width: 100%;
     height: 100%;
   
-    z-index: 0;
-    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
   }
   
   * {
@@ -34,9 +34,11 @@
     /* border: 2px solid white; */
     color: white;
     display: flex;
-    flex: 1 1 30rem;
+    align-items: center;
+    justify-content: center;
+    /* flex: 1 1 30rem; */
     padding: 10px;
-    margin-top: 3rem;
+    margin-top: 17rem;
     margin-left: 2rem;
     margin-right: 2rem;
   }
@@ -47,18 +49,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50vh;
-    height: 40vh;
-    flex: 0.5 0.5 20rem;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    color: #fff;
+    /* width: 50vh; */
+    /* height: 40vh; */
+    /* flex: 1 1 20rem; */
+    /* padding: 2rem; */
+    /* border-radius: 0.5rem; */
+    /* color: #fff; */
     z-index: 13;
   }
-  .landingviewpage img {
-    width: 100vw;
-    height: 90vh;
-  }
+ 
+  
   .landingviewpage button {
     margin-top: 3rem;
     color: black;
@@ -66,8 +66,9 @@
     border-radius: 0.5rem;
     background: orange;
     letter-spacing: 2px;
-    font-family: "Kalam", cursive;
+    font-family: "Courgette", cursive;
     font-weight: 500;
+    padding: 10px;
   }
   
   /* ------components in landing page end------- */
@@ -104,9 +105,8 @@
     text-align: center;
     font-size: 40px;
     padding-top: 25px;
-    z-index: 1000;
     z-index: 15;
-    /* border: 2px solid #fa521c; */
+    border: 2px solid #fa521c;
   }
   
   #linkf {
@@ -127,4 +127,10 @@
   #sicon:hover{
     transform: rotateZ('720deg');
   
+  }
+
+  @media screen and (max-width:576px) {
+    #fullpage{
+      width: 853px;
+    }
   }

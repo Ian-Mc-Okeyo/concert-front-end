@@ -27,25 +27,25 @@ function Timer() {
   return (
     <div className="timer">
       <div className="spec">
-        <div className="box">
+        <div className="bix">
           <p id="day">{days < 10 ? "0" + days : days}</p>
           <section className="text">Days</section>
         </div>
       </div>
       <div className="spec">
-        <div className="box">
+        <div className="bix">
           <p id="hour">{hours < 10 ? "0" + hours : hours}</p>
-          <section className="text">Hours</section>
+          <section className="text" id="hrs">Hours</section>
         </div>
       </div>
       <div className="spec">
-        <div className="box">
+        <div className="bix">
           <p id="minute">{minutes < 10 ? "0" + minutes : minutes}</p>
           <section className="text">Minutes</section>
         </div>
       </div>
       <div className="spec">
-        <div className="box">
+        <div className="bix">
           <p id="second">{seconds < 10 ? "0" + seconds : seconds}</p>
           <section className="text">Seconds</section>
         </div>
