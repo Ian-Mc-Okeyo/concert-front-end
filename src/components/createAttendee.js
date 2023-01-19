@@ -166,7 +166,7 @@ const CreateAttendee = () => {
                             type="text" 
                             className="form-control" 
                             id="validationCustom02" 
-                            placeholder="Last name" 
+                            placeholder="Middle name" 
                             value={values.middle_name} 
                             name='middle_name' 
                             onChange={handleChange} 
@@ -197,7 +197,7 @@ const CreateAttendee = () => {
                             type="email" 
                             className="form-control" 
                             id="validationCustom02" 
-                            placeholder="Last name" 
+                            placeholder="Email" 
                             value={values.email} 
                             name='email' 
                             onChange={handleChange}
@@ -271,7 +271,7 @@ const CreateAttendee = () => {
                         </div> 
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" disabled={sendTransaction}>Change details</button>
-                            <button type="submit" className="btn btn-primary" onClick={requestPayment} disabled={sendTransaction}>PAY</button>
+                            <button type="submit" className="" onClick={requestPayment} disabled={sendTransaction}>PAY</button>
                         </div>
                         </div>
                     </div>
