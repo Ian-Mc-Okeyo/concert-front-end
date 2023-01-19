@@ -57,9 +57,21 @@
     /* color: #fff; */
     z-index: 13;
   }
+
  
   
   .landingviewpage button {
+    margin-top: 3rem;
+    color: black;
+    border: 2px solid orange;
+    border-radius: 0.5rem;
+    background: orange;
+    letter-spacing: 2px;
+    font-family: "Courgette", cursive;
+    font-weight: 500;
+    padding: 10px;
+  }
+  button {
     margin-top: 3rem;
     color: black;
     border: 2px solid orange;

@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import "./home.css";
 import axios from "axios";
 import {useState} from 'react'
 import { useFormik } from 'formik'
@@ -139,11 +140,11 @@ const CreateAttendee = () => {
 
     return(
         <>
-            <div className='bg'></div>
+            <div className='bg' id='fullpage'></div>
             <div className='container row' style={{textAlign: 'center'}}>
-                <h1 style={{textAlign: 'center'}}>BRIGHTEN YOUR CORNER CONCERT</h1>
-            <form className="col-md-8 content" onSubmit={handleSubmit}>
-                <h1>BUY YOUR TICKET</h1>
+                {/* <h1 style={{textAlign: 'center'}}>BRIGHTEN YOUR CORNER CONCERT</h1> */}
+            <form className="col-md-8 content" onSubmit={handleSubmit} id='fom'>
+                {/* <h1>BUY YOUR TICKET</h1> */}
                 <div className="row">
                     <div className="col-md-4 mb-3">
                         <label htmlFor="validationCustom01" className='form-control-lg'>First name</label>
@@ -229,14 +230,14 @@ const CreateAttendee = () => {
                             style = {errors.phone_number && touched.phone_name? {borderColor:"#fc8181"}:{}}
                         >
                             <option value="" selected>Select payment option</option>
-                            <option value="100" selected>Individual</option>
-                            <option value="200">Couple</option>
-                            <option value="300">Group</option>
+                            <option value="1" selected>Individual</option>
+                            <option value="2">Couple</option>
+                            <option value="3">Group</option>
                         </select>
                         { errors.option && touched.option && <p className='error'>{errors.option}</p>}
                     </div>
                 </div>
-                <button className="btn btn-primary" type="submit" disabled={isSubmitting}> {isLoading ? <ReactLoading type="bars" color="white" height={20} width={20} />: "Proceed to payment"}</button>
+                <button className="" type="submit" disabled={isSubmitting}> {isLoading ? <ReactLoading type="bars" color="white" height={20} width={20} />: "Proceed to payment"}</button>
                 <button className="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id='modal-btn' style={{display: 'none'}}></button>
             </form>
         </div>
