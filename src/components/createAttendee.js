@@ -5,12 +5,12 @@ import {useState} from 'react'
 import { useFormik } from 'formik'
 import { basicSchema } from '../schemas'
 import ReactLoading from 'react-loading';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 
 const CreateAttendee = () => {
 
-    const baseurl = 'http://127.0.0.1:8000/concert/'
+    const baseurl = 'https://api.tickets.jkusdachurch.org/concert/'
 
     const [isLoading, setIsLoading] = useState(false);
     const [sendTransaction, setSendTransaction] = useState(false);
@@ -20,7 +20,6 @@ const CreateAttendee = () => {
     const [ticketID, setTicketID] = useState("");
 
     const onSubmit = async (values, actions) =>{
-        console.log('Submitted');
         setIsLoading(true);
         //reset form: actions.resetForm()
         setTimeout(activateModal, 2000)
@@ -32,10 +31,11 @@ const CreateAttendee = () => {
         axios.post( baseurl+"checkout/", {
             phone_number: values.phone_number,
             amount: Number(values.option),
-            reference: "IAN MARK",
-            description: "IAN MARK"
+            reference: "concert",
+            description: "concert"
         }).then((response)=>{
             console.log(response.data);
+            console.log(response.data.ResponseCode)
             //reset the form
             setTransactionID(response.data.CheckoutRequestID)
             //checking the status of the payment
@@ -46,24 +46,41 @@ const CreateAttendee = () => {
 
     const delay = (r) => {
         setTimeout(()=>{
-            checkPaymentStatus(r.data.CheckoutRequestID)
-        }, 30000)
+            checkPaymentStatus(r.data.billref)
+        }, 32000)
     }
 
     const checkPaymentStatus = (id) => {
-        console.log(transactionID)
         axios.get( baseurl + 'check-transaction/'+id).then((response) => {
-            console.log(response.data);
             setTransactionStatus(response.data.status)
             if(!response.data.status){
+
+                //setting the ticket type
+                var ticket_type = 'Advance'
+                if(values.option == '800'){
+                    ticket_type = 'Mega'
+                }else if(values.option == '700'){
+                    ticket_type = 'Couple';
+                }else if(values.option == '1650'){
+                    ticket_type = 'Group';
+                }
+                console.log(ticket_type);
+                var middle_name = 'null-x';
+                if(values.middle_name){
+                    middle_name = values.middle_name;
+                }
+                console.log(middle_name);
+                
                 axios.post(baseurl + 'add-attendee/', {
                     phone_number: values.phone_number,
                     first_name: values.first_name,
-                    middle_name: values.middle_name,
-                    last_name: values.middle_name,
-                    email: values.email
+                    middle_name: middle_name,
+                    last_name: values.last_name,
+                    email: values.email,
+                    ticket_type: ticket_type,
+                    transaction_no: id,
+                    amount: values.option
                 }).then((response)=>{
-                    console.log(response)
                     setTicketID(response.data.ticket_id)
 
                     //sending the ticket_id via email
@@ -92,6 +109,11 @@ const CreateAttendee = () => {
         document.getElementById('modal-btn').click();
     }
 
+    const modalClose = () =>{
+        setSendTransaction(false);
+        setFeedback(false)
+    }
+
     const Feedback = () => {
         if(!feedback){
             return ""
@@ -111,7 +133,7 @@ const CreateAttendee = () => {
                         <hr />
                         <h5 style={{color: 'blue'}}>Transaction Complete</h5>
                         <h5 style={{color: 'green'}}>Ticket No: {ticketID}</h5>
-                        <b>Kindly Remember to save your Ticket Number</b>
+                        <b>Ticekt Number has been sent to your email. Kindly Remember to save your Ticket Number.</b>
                         <br/>
                         <button
                              onClick = {()=>window.location.reload(true)}
@@ -211,7 +233,7 @@ const CreateAttendee = () => {
                             type="text" 
                             className="form-control" 
                             id="validationCustom02" 
-                            placeholder="M-PESA Phone Number" 
+                            placeholder="M-PESA Number. +254..." 
                             value={values.phone_number} 
                             name='phone_number' 
                             onChange={handleChange}
@@ -230,14 +252,15 @@ const CreateAttendee = () => {
                             style = {errors.phone_number && touched.phone_name? {borderColor:"#fc8181"}:{}}
                         >
                             <option value="" selected>Select payment option</option>
-                            <option value="1" selected>Individual</option>
-                            <option value="2">Couple</option>
-                            <option value="3">Group</option>
+                            <option value="400" selected>Individual-Ksh 400</option>
+                            <option value="700">Couple-Ksh 700</option>
+                            <option value="1850">Group of 5-Ksh 1650</option>
+                            <option value="800">Mega-Ksh 800</option>
                         </select>
                         { errors.option && touched.option && <p className='error'>{errors.option}</p>}
                     </div>
                 </div>
-                <button className="" type="submit" disabled={isSubmitting}> {isLoading ? <ReactLoading type="bars" color="white" height={20} width={20} />: "Proceed to payment"}</button>
+                <button className="" type="submit" disabled={isSubmitting} style={{borderRadius: '0.5rem'}}> {isLoading ? <ReactLoading type="bars" color="white" height={20} width={20} />: "Proceed to payment"}</button>
                 <button className="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id='modal-btn' style={{display: 'none'}}></button>
             </form>
         </div>
@@ -246,7 +269,7 @@ const CreateAttendee = () => {
                         <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="staticBackdropLabel">CONFIRMATION</h5>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={modalClose} disabled={sendTransaction}></button>
                         </div>
                         <div className="modal-body">
                             <h4>Please Confirm Details Before Payment</h4>
@@ -259,9 +282,9 @@ const CreateAttendee = () => {
                                 {sendTransaction ?
                                     <div style={{textAlign: 'center'}}>
                                         <hr />
-                                        <h5>An Mpesa Push prompt has been sent to your phone</h5>
+                                        <h5>An Mpesa Push prompt has been sent to your phone. Kindly don't exit this page, wait for the ticket number...</h5>
                                         <button className='btn btn-light' style={{border: 'none', background: 'transparent'}}>
-                                            <ReactLoading type="bars" color="blue" height={60} width={60} />
+                                            <ReactLoading type="bars" color="orange" height={60} width={60} />
                                         </button>
                                     </div>
                                     : 
@@ -271,7 +294,7 @@ const CreateAttendee = () => {
                         </div> 
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" disabled={sendTransaction}>Change details</button>
-                            <button type="submit" className="" onClick={requestPayment} disabled={sendTransaction}>PAY</button>
+                            <button type="submit" className="" onClick={requestPayment} disabled={sendTransaction} style={{borderRadius: '0.5rem'}}>PAY</button>
                         </div>
                         </div>
                     </div>
