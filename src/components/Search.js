@@ -58,16 +58,7 @@ const Search = () =>{
                         </thead>
                             <tbody>
                                 {attendees.map((attendee)=>{
-                                    var amount = 0
-                                    if(attendee.ticket_type == 'Advance'){
-                                        amount = 400;
-                                    }else if(attendee.ticket_type == 'Couple'){
-                                        amount = 700;
-                                    }else if(attendee.ticket_type == 'Group'){
-                                        amount = 1850;
-                                    }else if(attendee.ticket_type == 'Mega'){
-                                        amount = 800
-                                    }
+                            
                                     return(
                                         <tr>
                                             <td>{attendee.first_name+" "+attendee.middle_name+" "+attendee.last_name}</td>
@@ -75,7 +66,7 @@ const Search = () =>{
                                             <td>{attendee.ticket_type}</td>
                                             <td>{attendee.email}</td>
                                             <td>{attendee.phone_number}</td>
-                                            <td>{amount}</td>
+                                            <td>{attendee.amount}</td>
                                         </tr>
                                     )
                                 })}
