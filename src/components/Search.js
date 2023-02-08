@@ -66,7 +66,7 @@ const Search = () =>{
                                             <td>{attendee.ticket_type}</td>
                                             <td>{attendee.email}</td>
                                             <td>{attendee.phone_number}</td>
-                                            <td>{attendee.amount}</td>
+                                            <td>{attendee.amount}hg</td>
                                         </tr>
                                     )
                                 })}
