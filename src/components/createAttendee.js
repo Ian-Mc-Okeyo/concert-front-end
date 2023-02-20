@@ -235,7 +235,7 @@ const CreateAttendee = () => {
                             type="text" 
                             className="form-control" 
                             id="validationCustom02" 
-                            placeholder="M-PESA Number. +254..." 
+                            placeholder="M-PESA Number. 07..." 
                             value={values.phone_number} 
                             name='phone_number' 
                             onChange={handleChange}
