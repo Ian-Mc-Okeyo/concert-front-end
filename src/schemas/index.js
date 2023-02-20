@@ -10,7 +10,7 @@ export const basicSchema = yup.object().shape({
     middle_name: yup.string(),
     last_name: yup.string().min(3).required("Required"),
     email: yup.string().email("Please Enter a valid email").matches(emailReg, {message: "Please enter a valid email"}).required("Required"),
-    phone_number: yup.string().required("Required").min(13, "Invalid Phone Number").max(13, 'Invalid Phone number').
+    phone_number: yup.string().required("Required").min(10, "Invalid Phone Number").max(10, 'Invalid Phone number').
         test("Check prefix", function () {
             let code = "+254";
             let num = this.parent["phone_number"];
