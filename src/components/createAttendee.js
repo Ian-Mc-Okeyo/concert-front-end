@@ -28,8 +28,10 @@ const CreateAttendee = () => {
     const requestPayment = async () => {
         setSendTransaction(true)
         //sending the stk push request
+        const phoneNu = values.phone_number
+        const updated_num = "+254" + phoneNu[1]+ phoneNu[2]+ phoneNu[3]+ phoneNu[4]+ phoneNu[5]+ phoneNu[6]+ phoneNu[7]+ phoneNu[8]+ phoneNu[9]
         axios.post( baseurl+"checkout/", {
-            phone_number: values.phone_number,
+            phone_number: updated_num,
             amount: Number(values.option),
             reference: "concert",
             description: "concert"
