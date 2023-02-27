@@ -256,7 +256,7 @@ const CreateAttendee = () => {
                             <option value="" selected>Select payment option</option>
                             <option value="400" selected>Individual-Ksh 400</option>
                             <option value="700">Couple-Ksh 700</option>
-                            <option value="1850">Group of 5-Ksh 1650</option>
+                            <option value="1650">Group of 5-Ksh 1650</option>
                             <option value="800">Mega-Ksh 800</option>
                         </select>
                         { errors.option && touched.option && <p className='error'>{errors.option}</p>}
