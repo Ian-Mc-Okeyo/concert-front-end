@@ -264,7 +264,8 @@ const CreateAttendee = () => {
                 </div>
                 <button className="" type="submit" disabled={isSubmitting} style={{borderRadius: '0.5rem'}}> {isLoading ? <ReactLoading type="bars" color="white" height={20} width={20} />: "Proceed to payment"}</button>
                 <button className="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id='modal-btn' style={{display: 'none'}}></button>
-                <h4>Contact 0725927128 or 0796417598 for any issues</h4>
+                </br>
+                <h6 className="display-6">Contact 0725927128 or 0796417598 for any issues</h6>
             </form>
         </div>
         <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
