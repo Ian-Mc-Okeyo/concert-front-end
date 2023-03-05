@@ -39,7 +39,7 @@ const Search = () =>{
                         </div>
                         <datalist id="datalistOptions">
                             {attendees.map((attendee)=>{
-                                return <option value={attendee.first_name+" "+attendee.middle_name+" "+attendee.last_name+"-"+attendee.ticket_id+"-"+"attendee.ticket_type"}/>
+                                return <option value={attendee.first_name+" "+attendee.middle_name+" "+attendee.last_name+"-"+attendee.ticket_id+"-"+attendee.ticket_type"}/>
                             })}
                         </datalist>
                     </div>
