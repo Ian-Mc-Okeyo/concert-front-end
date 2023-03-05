@@ -254,7 +254,7 @@ const CreateAttendee = () => {
                             style = {errors.phone_number && touched.phone_name? {borderColor:"#fc8181"}:{}}
                         >
                             <option value="" selected>Select payment option</option>
-                            <option value="250" selected>Individual-Ksh 250</option>
+                            <option value="500" selected>Individual-Ksh 500</option>
                             <option value="700">Couple-Ksh 700</option>
                             <option value="1650">Group of 5-Ksh 1650</option>
                             <option value="800">Mega-Ksh 800</option>
