@@ -92,7 +92,7 @@ const CreateAttendee = () => {
                         email: values.email   
                     }
 
-                    emailjs.send('service_5yfw0xh', 'template_tc1b9hf', templateParams, 'Y_h02AB2ElujhmJ37')
+                    emailjs.send('service_nuq3gwr', 'template_oueo32w', templateParams, 'M3gU_YTRg0y4Qj4X6')
                     .then((result) => {
                         console.log(result.text);
                     }, (error) => {
