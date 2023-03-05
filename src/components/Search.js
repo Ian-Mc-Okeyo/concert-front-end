@@ -18,7 +18,7 @@ const Search = () =>{
 
     return (
         <>
-            <div className='bg'></div>
+            <div className='bg' id='fullpage'></div>
             <div className='container row align-items-center justify-content-center' style={{textAlign: 'center'}}>
                 <h1 style={{textAlign: 'center'}}>LIGHT HOUSE CONCERT</h1>
                 <form className="col-md-12" style={{left:"50%", textAlign:"center"}}>
